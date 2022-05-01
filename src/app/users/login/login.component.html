@@ -1,0 +1,4 @@
+<p>login works for {{userName | uppercase}} and title is {{title}} and date : {{today | date:'fullDate'}}</p>
+<h3 *ngIf="user">Name: {{user.name}}, Age: {{user.age}}</h3>
+<h4>sliced string: {{stringToSlice | slice:2:4}} and currency: {{amount | currency:'USD'}}</h4>
+<button (click)="sendData(title)">Pass Data from child to parent</button>
