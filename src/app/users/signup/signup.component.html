@@ -1,1 +1,22 @@
 <p>signup works!</p>
+<button (click)="getUserDataUsingService()">Show User service details</button>
+<ng-template [ngIf]="userDetails">
+    <p>Name:{{userDetails.name}}, Age:{{userDetails.age}}, City: {{userDetails.city}}</p>
+</ng-template>
+<button (click)="showUserList()">Show user list</button>
+<!-- <ng-template > -->
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Status</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of userList">
+                <td>{{item.id}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.completed}}</td>
+            </tr>
+        </tbody>
+    </table>
+<!-- </ng-template> -->

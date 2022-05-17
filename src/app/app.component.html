@@ -12,7 +12,8 @@
   <p>{{num1+num2}}</p>
   <app-first></app-first>
   <app-signup></app-signup>
-  <app-login [userName]="userName" [title]="title" (showDataFromChildToParent)="showDataFromChildToParent($event)"></app-login>
+  <app-login [userName]="userName" [title]="title" (showDataFromChildToParent)="showDataFromChildToParent($event)">
+  </app-login>
   <button (click)="getName()">Get User Name</button>
   <button (click)="getName('bruce')">Get User Name</button>
   <button (click)="getName(title)">Get User Name</button>
@@ -75,11 +76,36 @@
     </tbody>
   </table>
   <br>
+  <h2>Testing Templated driven forms..</h2>
   <form #simpleForm="ngForm" (ngSubmit)="saveFormDetails(simpleForm.value)">
-    <input type="text" ngModel name="firstName" placeholder="Enter you first name"><br>
-    <input type="text" ngModel name="lastName" placeholder="Enter you last name"><br>
-    <input type="text" ngModel name="city" placeholder="Enter you city name"><br>
-    <button>Save Details</button>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <input type="text" class="form-control" ngModel name="firstName" placeholder="Enter you first name"><br>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" ngModel name="lastName" placeholder="Enter you last name"><br>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" [ngModel]="userData.city" name="city" placeholder="Enter you city name"><br>
+      </div>
+      <button class="btn btn-primary">Save Details</button>
+    </div>
+  </form>
+  <br>
+  <h2>Testing Reactive forms..</h2>
+  <form [formGroup]="testForm" (ngSubmit)="showTestFormData()">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="firstName" placeholder="Enter you first name"><br>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="lastName" placeholder="Enter you last name"><br>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="city" placeholder="Enter you city name"><br>
+      </div>
+      <button class="btn btn-primary">Save Details</button>
+    </div>
   </form>
   <br>
   <h1>Style binding...</h1>
@@ -98,4 +124,29 @@
 <button mat-raised-button color="primary">Primary</button><br><br>
 <br>
 <mat-slider color="primary"></mat-slider>
+<h3>Testing routes...</h3>
+<a routerLink="signup">Signup</a><br>
+<a routerLink="login">Login</a><br>
+<a routerLink="test">Testpage</a>
+
+<h2>Testing module routing..</h2>
+<ul>
+  <li>
+    <a routerLink="admin/login">Admin Login</a>
+  </li>
+  <li>
+    <a routerLink="admin/list">Admin Details</a>
+  </li>
+</ul>
+
+<h2>Testing group routing..</h2>
+<ul>
+  <li>
+    <a routerLink="guest/login">Guest Login</a>
+  </li>
+  <li>
+    <a routerLink="guest/list">Guest Details</a>
+  </li>
+</ul>
 <app-footer></app-footer>
+<router-outlet></router-outlet>
