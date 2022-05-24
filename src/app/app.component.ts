@@ -9,13 +9,19 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class AppComponent {
   testForm = new FormGroup(
     {
-      firstName: new FormControl('ranvijay', Validators.required),
+      firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
-      city: new FormControl('',Validators.required)
+      city: new FormControl('Noida',Validators.required)
     }
   );
-
+  
+  // testFormDisabled=false;
   showTestFormData(){
+    debugger
+    // if(this.testForm.status ==='INVALID' && !this.testForm.touched){
+    //   this.testFormDisabled=true;
+    //   alert('test form is invalid');
+    // }
     console.warn(this.testForm.value);
   }
 

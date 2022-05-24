@@ -15,8 +15,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatSliderModule} from '@angular/material/slider';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
-import { AdminModule } from './admin/admin.module';
-import { GuestModule } from './guest/guest.module';
+// import { AdminModule } from './admin/admin.module';
+// import { GuestModule } from './guest/guest.module';
 
 @NgModule({
   declarations: [
@@ -37,8 +37,8 @@ import { GuestModule } from './guest/guest.module';
     MatButtonModule,
     MatSliderModule,
     HttpClientModule,
-    AdminModule,
-    GuestModule
+    // AdminModule,
+    // GuestModule
   ],
   providers: [],
   bootstrap: [AppComponent]

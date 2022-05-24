@@ -7,10 +7,6 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path:"",
-    component:AppComponent
-  },
-  {
     path:"signup",
     component:SignupComponent
   },
@@ -18,10 +14,15 @@ const routes: Routes = [
     path:"login",
     component:LoginComponent
   },
-  // {
-  //   path:"**",
-  //   component:PageNotFoundComponent
-  // }
+  { path: 'admin', loadChildren: () => import(`./admin/admin.module`).then(m => m.AdminModule) },
+  {path:'guest',loadChildren: ()=> import(`./guest/guest.module`).then(m => m.GuestModule)},
+  {
+    path:"", redirectTo :"", pathMatch:'full'
+  },
+  {
+    path:"**",
+    component:PageNotFoundComponent
+  }
 ];
 
 @NgModule({

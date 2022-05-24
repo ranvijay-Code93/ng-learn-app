@@ -95,16 +95,19 @@
   <h2>Testing Reactive forms..</h2>
   <form [formGroup]="testForm" (ngSubmit)="showTestFormData()">
     <div class="col-sm-6">
-      <div class="form-group">
-        <input type="text" class="form-control" formControlName="firstName" placeholder="Enter you first name"><br>
+      <div class="form-group row">
+        <input type="text" class="form-control" formControlName="firstName" placeholder="Enter you first name">
+        <span class='errorText' *ngIf="testForm.controls['firstName'].status==='INVALID' && testForm.controls['firstName'].touched">First name is required.</span>
       </div>
-      <div class="form-group">
-        <input type="text" class="form-control" formControlName="lastName" placeholder="Enter you last name"><br>
+      <div class="form-group row">
+        <input type="text" class="form-control" formControlName="lastName" placeholder="Enter you last name">
+        <span class='errorText' *ngIf="testForm.controls['lastName'].status==='INVALID' && testForm.controls['lastName'].touched">Last name is required.</span>
       </div>
-      <div class="form-group">
-        <input type="text" class="form-control" formControlName="city" placeholder="Enter you city name"><br>
+      <div class="form-group row">
+        <input type="text" class="form-control" formControlName="city" placeholder="Enter you city name">
+        <span class='errorText' *ngIf="testForm.controls['city'].status==='INVALID' && testForm.controls['city'].touched">City is required.</span>
       </div>
-      <button class="btn btn-primary">Save Details</button>
+      <button class="btn btn-primary" [disabled]="testForm.status ==='INVALID' && testForm.touched">Save Details</button>
     </div>
   </form>
   <br>
@@ -137,6 +140,9 @@
   <li>
     <a routerLink="admin/list">Admin Details</a>
   </li>
+  <li>
+    <a routerLink="admin/test">Admin Details</a>
+  </li>
 </ul>
 
 <h2>Testing group routing..</h2>
@@ -146,6 +152,9 @@
   </li>
   <li>
     <a routerLink="guest/list">Guest Details</a>
+  </li>
+  <li>
+    <a routerLink="guest/test">Guest Details</a>
   </li>
 </ul>
 <app-footer></app-footer>
